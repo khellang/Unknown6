@@ -37,9 +37,10 @@ message Signature {
         uint64 unk12 = 12;
         uint64 unk13 = 13;
         uint64 unk14 = 14;
-        double accelerometer_x = 16;
-        double accelerometer_y = 17;
-        double accelerometer_z = 18; // Always 0x40239999a0000000 in the dumps its 9.8 double
+        // On Android, all accelerometer values have minimum value -10 and maximum value of 10.
+        double accelerometer_x = 16; // Android values typically between -5 (tilted 45° right) and 5 (tilted 45° left)
+        double accelerometer_y = 17; // Android values typically between 0 (lying down) and 9.8 (fully upright)
+        double accelerometer_z = 18; // Android values typically between 0 (fully upright) and 9.8 (lying down)
         uint64 accelerometer_axis = 19; // Always 3
     }
 
